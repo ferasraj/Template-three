@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+@import "tailwindcss";
+
+@tailwind utilities;
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --font-cairo: "Cairo", sans-serif;
+  --color-primary: #2196f3;
+  --color-secondary: #1787e0;
+  --transition-duration-primary: 0.3s;
+  --tracking-2: -2px;
+  --animate-up-and-down: up-and-down 5s linear infinite;
+  --animate-bouncing: bouncing 1.5s infinite;
+}
+@keyframes up-and-down {
+  0%,
+  100% {
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+@keyframes bouncing {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  body {
+    @apply font-cairo;
+  }
+  ul {
+    @apply list-none;
+  }
+  a {
+    @apply no-underline;
+  }
+}
+@layer components {
+  .container {
+    @apply mx-auto px-4;
+    @apply sm:w-[750px] md:w-[970px] lg:w-[1170px];
+  }
+  .main-nav > li > a::before {
+    @apply absolute content-['']  w-full top-0 h-1 left-[-100%]
+     bg-primary transition-[left] duration-primary ease-in-out;
+  }
+  .mega-menu .links {
+    @apply min-w-60 flex-1;
+  }
+  .mega-menu .links li {
+    @apply relative;
+  }
+  .mega-menu .links li:not(:last-child) {
+    @apply border-b border-[#e9e6e6];
+  }
+  .mega-menu .links li:last-child {
+    @apply max-[767px]:border-b max-[767px]:border-[#e9e6e6];
+  }
+
+  .mega-menu .links li a {
+    @apply text-primary p-3.5 block text-lg font-bold;
+  }
+  .mega-menu .links li a i {
+    @apply mr-2.5;
+  }
+  .mega-menu .links li::before {
+    @apply content-[''] absolute left-0 top-0 w-0 h-full bg-[#fafafa] -z-1  
+    transition-all duration-primary ease-in-out;
+  }
+  .mega-menu .links li:hover::before {
+    @apply w-full;
+  }
+  .landing::before {
+    @apply content-['000'] absolute left-0 top-[-40px] w-full 
+    h-full bg-[#ececec] -z-10 -skew-y-6 origin-top-left;
+  }
+}
