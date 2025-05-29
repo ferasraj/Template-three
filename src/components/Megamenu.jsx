@@ -1,17 +1,44 @@
-import React from "react";
+import { linksGroup1, linksGroup2 } from "../assets/assets.js";
+import { useEffect, useState } from "react";
 
 const Megamenu = ({ visible }) => {
+  const [shouldRender, setShouldRender] = useState(visible);
+
+  //استخدام الانيميشن للميجا منيو
+  useEffect(() => {
+    if (visible) {
+      setShouldRender(true);
+    } else {
+      const timeout = setTimeout(() => setShouldRender(false), 300); // نفس مدة الأنيميشن
+      return () => clearTimeout(timeout);
+    }
+  }, [visible]);
+
+  const LinksList = ({ links }) => (
+    <ul className="links min-w-60 flex-1">
+      {links.map((link, index) => (
+        <li key={index.href} className="relative hover:before:w-full">
+          <a
+            href={link.href}
+            className="text-primary p-3.5 block text-lg font-bold"
+          >
+            <i className={`${link.icon} fa-fw mr-2.5`}></i> {link.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+
+  if (!shouldRender) return null;
+
   return (
     <section>
       <div
-        className={`mega-menu bg-white absolute w-full left-0 sm:p-8 p-[5px] border-b-4 
-        border-primary z-50 flex sm:flex-row flex-col  sm:gap-10 gap-0 top-[calc(100%+0.5px)]
-        transition-all duration-primary ease-in-out
-        ${
-          visible
-            ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible -translate-y-5"
-        }`}
+        className={`
+    mega-menu bg-white absolute w-full left-0 sm:p-8 p-[5px] border-b-4 
+    border-primary z-50 flex sm:flex-row flex-col sm:gap-10 gap-0
+    ${visible ? "animate-slide-up" : "fade-out"}
+  `}
       >
         <div className="image hidden md:block ">
           <img
@@ -20,60 +47,8 @@ const Megamenu = ({ visible }) => {
             className="max-w-full "
           />
         </div>
-        <ul className="links">
-          <li>
-            <a href="#testimonials">
-              <i className=" far fa-comments fa-fw"></i> Testimonials
-            </a>
-          </li>
-          <li>
-            <a href="#team">
-              <i className="far fa-user fa-fw"></i> Team Members
-            </a>
-          </li>
-          <li>
-            <a href="#services">
-              <i className="far fa-building fa-fw"></i> Services
-            </a>
-          </li>
-          <li>
-            <a href="#our-skills">
-              <i className="far fa-check-circle fa-fw"></i> Our Skills
-            </a>
-          </li>
-          <li>
-            <a href="#work-steps">
-              <i className="far fa-clipboard fa-fw"></i> How It Works
-            </a>
-          </li>
-        </ul>
-        <ul className="links">
-          <li>
-            <a href="#events">
-              <i className="far fa-calendar-alt fa-fw"></i> Events
-            </a>
-          </li>
-          <li>
-            <a href="#pricing">
-              <i className="fas fa-server fa-fw"></i> Pricing Plans
-            </a>
-          </li>
-          <li>
-            <a href="#video">
-              <i className="far fa-play-circle fa-fw"></i> Top Videos
-            </a>
-          </li>
-          <li>
-            <a href="#stats">
-              <i className="far fa-chart-bar fa-fw"></i> Stats
-            </a>
-          </li>
-          <li>
-            <a href="#discount">
-              <i className="fas fa-percent fa-fw"></i> Request A Discount
-            </a>
-          </li>
-        </ul>
+        <LinksList links={linksGroup1} />
+        <LinksList links={linksGroup2} />
       </div>
     </section>
   );

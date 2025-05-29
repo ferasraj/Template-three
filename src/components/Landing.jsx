@@ -19,7 +19,7 @@ const Landing = () => {
           </div>
           <div className="image hidden md:flex ">
             <img
-              className="relative w-[600px] animate-up-and-down"
+              className="relative w-[600px] animate-up-and-down -z-1"
               decoding="async"
               src="../src/assets/imgs/landing-image.png"
               alt="landing-image"

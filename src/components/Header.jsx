@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Megamenu from "./Megamenu";
+import { navItems } from "../assets/assets.js";
 
 const Header = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
@@ -14,12 +15,30 @@ const Header = () => {
     };
   }, [showMegaMenu]);
 
-  const navItems = [
-    { href: "#article", label: "Article" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#features", label: "Features" },
-    { href: "#", label: "Other Links" },
-  ];
+  const ItemsNav = ({ items }) => (
+    <ul className="main-nav  m-auto sm:m-0 flex text-black ">
+      {items.map((item) => (
+        <li key={item.href}>
+          <a
+            ref={item.label === "Other Links" ? toggleButtonRef : null}
+            onClick={() => handleClick(item.label)}
+            href={item.href}
+            className="
+    flex relative sm:px-7 sm:py-0 p-2.5 sm:text-lg text-sm sm:h-[72px] h-[40px] 
+    items-center justify-center overflow-hidden 
+    transition-all duration-primary ease-in-out
+    hover:text-primary hover:bg-[#fafafa]
+    hover:before:left-0"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <div ref={megaMenuRef}>
+        <Megamenu visible={showMegaMenu} />
+      </div>
+    </ul>
+  );
 
   const handleClick = (label) => {
     if (label === "Other Links") {
@@ -55,34 +74,11 @@ const Header = () => {
           <a
             href="#"
             className="logo text-primary text-[26px] font-bold
-             sm:h-[72px] h-[50px] sm:w-auto w-full flex items-center justify-center"
+              sm:h-[72px] h-[50px] sm:w-auto w-full flex items-center justify-center"
           >
             Raj Dev.
           </a>
-          <ul className="main-nav m-auto sm:m-0 flex text-black ">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  ref={item.label === "Other Links" ? toggleButtonRef : null}
-                  onClick={() => handleClick(item.label)}
-                  href={item.href}
-                  className="
-    flex relative sm:px-7 sm:py-0 p-2.5 sm:text-lg text-sm sm:h-[72px] h-[40px] 
-    items-center justify-center overflow-hidden 
-    transition-all duration-primary ease-in-out
-    hover:text-primary hover:bg-[#fafafa]
-    hover:before:left-0"
-                >
-                  {item.label}
-                </a>
-                {item.label === "Other Links" && (
-                  <div ref={megaMenuRef}>
-                    <Megamenu visible={showMegaMenu} />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
+          <ItemsNav items={navItems} />
         </div>
       </div>
     </section>
