@@ -12,6 +12,7 @@
   --font-cairo: "Cairo", sans-serif;
   --color-primary: #2196f3;
   --color-secondary: #1787e0;
+  --color-bg: #ececec;
   --transition-duration-primary: 0.3s;
   --tracking-2: -2px;
   --animate-up-and-down: up-and-down 5s linear infinite;
@@ -21,7 +22,10 @@
   --animate-left-move: left-move 0.5s linear forwards;
   --animate-right-move: right-move 0.5s linear forwards;
   --animate-moving-arrow: moving-arrow 0.6s linear infinite;
+  --animate-flashing: flashing 0.7s;
   --shadow-custom: 0 2px 15px rgb(0 0 0 / 0.1);
+  --shadow-custom-2: rgba(0, 0, 0, 0.13) 0px 12px 20px,
+    rgba(0, 0, 0, 0.12) 0px 2px 4px;
 }
 @keyframes up-and-down {
   0%,
@@ -102,6 +106,17 @@
     transform: translateX(10px);
   }
 }
+@keyframes flashing {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
 
 @layer base {
   * {
@@ -163,17 +178,36 @@
   .main-title:hover:before {
     @apply -z-1 animate-left-move;
   }
-
   .main-title:hover:after {
     @apply -z-1 animate-right-move;
   }
   .main-title:hover {
     @apply border-2 border-white text-white delay-500;
   }
+  /** gallery */
+  .gallery .box .image::before {
+    @apply content-[''] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] 
+           bg-white/20 w-0 h-0 opacity-0 z-[2];
+  }
 }
 
 @layer utilities {
+  .spikes::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+    background-image: linear-gradient(135deg, white 25%, transparent 25%),
+      linear-gradient(225deg, white 25%, transparent 25%);
+    background-size: 30px 30px;
+  }
+
   .grid-250 {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .grid-auto-300 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
