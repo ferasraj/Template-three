@@ -26,6 +26,7 @@
   --shadow-custom: 0 2px 15px rgb(0 0 0 / 0.1);
   --shadow-custom-2: rgba(0, 0, 0, 0.13) 0px 12px 20px,
     rgba(0, 0, 0, 0.12) 0px 2px 4px;
+  --shadow-custom-3: 0 2px 4px rgb(0 0 0 / 7%);
 }
 @keyframes up-and-down {
   0%,
@@ -80,9 +81,8 @@
   }
   100% {
     left: 0;
-    border-bottom-left-radius: 12px;
+    border-bottom-left-radius: 9px;
     border-top-left-radius: 0px;
-
     width: 100%;
     height: 100%;
   }
@@ -95,7 +95,7 @@
   }
   100% {
     right: 0;
-    border-top-right-radius: 12px;
+    border-top-right-radius: 9px;
     border-bottom-right-radius: 0px;
     width: 100%;
     height: 100%;
@@ -182,7 +182,7 @@
     @apply -z-1 animate-right-move;
   }
   .main-title:hover {
-    @apply border-2 border-white text-white delay-500;
+    @apply border-2 border-primary text-white delay-500;
   }
   /** gallery */
   .gallery .box .image::before {
@@ -210,4 +210,8 @@
   .grid-auto-300 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
+}
+
+.shady {
+  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
 }
