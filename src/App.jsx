@@ -4,6 +4,7 @@ import Landing from "./components/Landing"; // Assuming Landing.jsx is in src/co
 import Articles from "./components/Articles";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
+import Services from "./components/Services";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Articles />
       <Gallery />
       <Testimonials />
+      <Services />
     </div>
   );
 };
