@@ -5,6 +5,9 @@ import Articles from "./components/Articles";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import Services from "./components/Services";
+import Team from "./components/Team";
+import Features from "./components/Features";
+import WorkSteps from "./components/WorkSteps";
 
 const App = () => {
   return (
@@ -13,8 +16,11 @@ const App = () => {
       <Landing />
       <Articles />
       <Gallery />
+      <Features />
       <Testimonials />
+      <Team />
       <Services />
+      <WorkSteps />
     </div>
   );
 };

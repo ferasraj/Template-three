@@ -1,6 +1,6 @@
 const ArticleCard = ({ article }) => {
   return (
-    <card>
+    <div>
       <div
         className="box-article bg-white shadow-custom rounded-[6px] overflow-hidden
                 transition-transform duration-primary group 
@@ -26,7 +26,7 @@ const ArticleCard = ({ article }) => {
           ></i>
         </div>
       </div>
-    </card>
+    </div>
   );
 };
 

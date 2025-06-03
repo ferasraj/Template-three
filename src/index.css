@@ -198,6 +198,7 @@
   .services {
     counter-reset: service-counter;
   }
+  /* *Team */
 }
 
 @layer utilities {
@@ -217,5 +218,8 @@
   }
   .grid-auto-300 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .socialFea a:hover i {
+    @apply text-primary;
   }
 }
