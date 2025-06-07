@@ -123,6 +123,9 @@
 @layer base {
   * {
     @apply box-border;
+    /** firefox */
+    /* scrollbar-color: #2196f3 #ececec; */
+    /* scrollbar-width: thin; */
   }
   body {
     @apply font-cairo;
@@ -198,7 +201,10 @@
   .services {
     counter-reset: service-counter;
   }
-  /* *Team */
+  /* *footer */
+  .footer .box .links li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
 }
 
 @layer utilities {
@@ -213,13 +219,63 @@
       linear-gradient(225deg, white 25%, transparent 25%);
     background-size: 30px 30px;
   }
+  .dots {
+    background-image: url("../src/assets/imgs/dots.png");
+    height: 186px;
+    width: 204px;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+  .dots-up {
+    top: 200px;
+    right: 0;
+  }
+  .dots-down {
+    bottom: 200px;
+    left: 0;
+  }
   .grid-250 {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
   .grid-auto-300 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
+  /* *Features */
   .socialFea a:hover i {
     @apply text-primary;
   }
+
+  /* *pricing */
+  .isPopular {
+    writing-mode: vertical-rl;
+  }
+  .box-price:hover .isPopular::after {
+    border-bottom-color: #f6f6f6;
+  }
+  /* *toasti */
+  .Toastify__progress-bar {
+    transform-origin: right !important;
+    right: auto !important;
+    left: 0 !important;
+  }
+}
+/*! Scrollbar عام */
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* خلفية المسار */
+::-webkit-scrollbar-track {
+  background: #ececec; /* gray-500 */
+}
+/* لون المؤشر */
+::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+/* عند التمرير Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1787e0;
 }

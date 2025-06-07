@@ -8,6 +8,12 @@ import Services from "./components/Services";
 import Team from "./components/Team";
 import Features from "./components/Features";
 import WorkSteps from "./components/WorkSteps";
+import Pricing from "./components/Pricing";
+import Events from "./components/Events";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import Skills from "./components/Skills";
+import Footer from "./components/Footer";
+import EmailCard from "./components/EmailCard";
 
 const App = () => {
   return (
@@ -20,7 +26,12 @@ const App = () => {
       <Testimonials />
       <Team />
       <Services />
+      <Skills />
       <WorkSteps />
+      <Events />
+      <Pricing />
+      <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

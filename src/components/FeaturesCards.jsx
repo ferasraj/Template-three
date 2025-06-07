@@ -48,7 +48,7 @@ const FeaturesCards = ({ features: { img, alt, type, para, color } }) => {
       </div>
       <h2
         className={twMerge(
-          "relative text-[40px] m-auto w-fit",
+          "relative text-[40px] m-auto w-fit font-bold",
           //after
           "after:content-[''] after:absolute after:bottom-[-20px]",
           "after:left-[15px] after:h-[5px] after:w-[calc(100%-30px)] ",
@@ -57,7 +57,11 @@ const FeaturesCards = ({ features: { img, alt, type, para, color } }) => {
       >
         {type}
       </h2>
-      <p className={twMerge("leading-loose text-xl mt-5 mb-5 mx-0 p-6")}>
+      <p
+        className={twMerge(
+          "text-[20px] leading-[2] my-[30px] text-[#777] mx-0 p-6"
+        )}
+      >
         {para}
       </p>
       <a
@@ -68,7 +72,7 @@ const FeaturesCards = ({ features: { img, alt, type, para, color } }) => {
           "w-fit ",
           "mx-auto mb-[30px]",
           "font-bold text-[22px]",
-          "py-[10px] px-[30px]",
+          "py-[7px] px-[30px]",
           "rounded-[6px]",
           "transition-all duration-300 ",
           //hover
