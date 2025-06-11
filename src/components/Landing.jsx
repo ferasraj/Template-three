@@ -1,5 +1,3 @@
-import React from "react";
-
 const Landing = () => {
   return (
     <section id="landing">
@@ -7,7 +5,7 @@ const Landing = () => {
         <div className="container min-h-[calc(100vh-72px)] flex items-center pb-32">
           <div className="text flex-1 text-center md:text-left ">
             <h1 className="text-[28px] sm:text-[40px] font-bold m-0 tracking-2">
-              Welcome, To Elzero World
+              Welcome, To Raj World
             </h1>
             <p
               className="text-lg sm:text-2xl leading-relaxed my-[10px] mx-auto md:mt-[5px]

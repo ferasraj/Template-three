@@ -14,6 +14,7 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
 import EmailCard from "./components/EmailCard";
+import Discount from "./components/Discount";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <WorkSteps />
       <Events />
       <Pricing />
+      <Discount />
       <Footer />
       <ScrollToTopButton />
     </div>

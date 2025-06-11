@@ -39,7 +39,7 @@ const Footer = () => {
         <div className={twMerge("container grid grid-250 gap-10")}>
           <div className="box">
             <h3 className={twMerge("text-white text-6xl mb-5 font-bold")}>
-              Raj
+              Raj Dev
             </h3>
             <ul
               className={twMerge("social flex justify-center sm:justify-start")}
@@ -139,7 +139,7 @@ const Footer = () => {
         <p
           className={twMerge(
             "copyright py-[25px] mt-[50px] text-center text-white",
-            "border-[1px] border-t border-[#444]"
+            "border-t-[1px]  border-t-[#444]"
           )}
         >
           Made By "Raj Dev"

@@ -10,6 +10,8 @@ const emailSchema = z.object({
   email: z.string().email("Please enter a valid email address."),
 });
 
+const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 const EmailCard = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -29,7 +31,7 @@ const EmailCard = () => {
     setLoading(true); // ✅ ابدأ التحميل
 
     try {
-      const res = await fetch("https://formspree.io/f/mvgajggb", {
+      const res = await fetch(formspreeEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
